@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+          <h5>ジャンル検索</h5><br>
+          <% @genres.each do |xx| %>
+          <div><%= link_to xx.name, items_path(g_id: xx.id) %></div>
+          <%end%>
+        </div>
+        
+        <div class="col-md-9">
+          <h4>商品一覧（全<%= @items.count-@k %>件）</h4>
+          
+          <% @items.each_slice(4) do |x1, x2, x3, x4|%>
+           <div class="row">
+             <% unless x1.nil? %>
+             <% if x1.is_active %>
+             <div class="col-md-3">
+               <div><%=image_tag x1.get_image(150,300) %></div>
+               <div><%=link_to x1.name , item_path(x1.id)%></div>
+               <div>¥<%= Integer(x1.price*1.1)%></div>
+             </div>
+             <%end%>
+             <%end%>
+             
+             
+             <% unless x2.nil? %>
+             <% if x2.is_active %>
+             <div class="col-md-3">
+               <div><%=image_tag x2.get_image(150,300) %></div>
+               <div><%=link_to x2.name , item_path(x2.id)%></div>
+               <div>¥<%= Integer(x2.price*1.1)%></div>
+             </div>
+             <%end%>
+             <%end%>
+             
+             <% unless x3.nil? %>
+             <% if x3.is_active %>
+             <div class="col-md-3">
+               <div><%=image_tag x3.get_image(150,300) %></div>
+               <div><%=link_to x3.name , item_path(x3.id)%></div>
+               <div>¥<%= Integer(x3.price*1.1)%></div>
+             </div>
+             <%end%>
+             <%end%>
+             
+             <% unless x4.nil? %>
+             <% if x4.is_active %>
+             <div class="col-md-3">
+               <div><%=image_tag x4.get_image(150,300) %></div>
+               <div><%=link_to x4.name , item_path(x4.id)%></div>
+               <div>¥<%= Integer(x4.price*1.1)%></div>
+             </div>
+             <%end%>
+             <%end%>
+             
+           </div>
+          <%end%>
+        </div>
+        
+    </div>
+  </div>
+        

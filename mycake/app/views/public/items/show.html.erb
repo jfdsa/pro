@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"><br><br>
+          <h5>ジャンル検索</h5><br>
+          <% @genres.each do |xx| %>
+          <div><%= xx.name %></div>
+          <%end%>
+        </div>
+        <div class="col-md-10"><br><br>
+          <div class="row">
+            <div class="col-md-6">
+              <%=image_tag @item.get_image(350,250) %>
+            </div>
+            <div class="col-md-6">
+               <div><%=@item.name %></div><br>
+               <div><%=@item.introduction %></div><br>
+               <div>¥<%= Integer(@item.price*1.1)%>(税込)</div><br>
+               
+               <div class="row">
+                 <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+                   <%= f.hidden_field :item_id, value: @item.id %>
+                   <%= f.select :amount, *[1..10]%><span>　　</span>
+                   <%= f.submit "カートに入れる", class: "btn btn-sm btn-success" %>
+                 <%end%>
+                 
+               </div>
+             </div>
+          </div>
+        </div>
+    </div>
+</div>
+        

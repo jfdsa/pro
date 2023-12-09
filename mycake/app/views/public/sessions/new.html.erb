@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row"><div class="col"><h5>ログイン</h5></div></div>
+
+<div class="row">
+<div class="col-md-1"></div>
+
+<div class="row"><h5>会員の方はこちらからログイン</h5></div><br>
+<div class="col-md-5"><br>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div>メールアドレス<%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+
+  <div>パスワード　　<%= f.password_field :password, autocomplete: "current-password" %></div>
+
+
+  <div class="actions">
+    <%= f.submit "ログイン", class: "btn btn-sm btn-primary" %>
+  </div>
+<% end %>
+</div>
+</div>
+
+<div class="row">
+  <div class="col"><br>
+    <h5>会員登録がお済みでない方</h5><br>
+<%= render "public/shared/links" %>
+</div>
+</div>
+
+</div>
