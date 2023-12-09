@@ -1,0 +1,2 @@
+console.log($('.favorite-<%= @book.id %>').html());
+$('.favorite-<%= @book.id %>').html("<%= j(render 'favorites/btn',  book: @favorite.book ) %>");
